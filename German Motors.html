@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Motors - Professional Car Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1b1c1c;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Typography */
+        h1 { font-size: 48px; font-weight: 700; line-height: 1.2; letter-spacing: -0.96px; }
+        h2 { font-size: 32px; font-weight: 700; line-height: 1.25; letter-spacing: -0.32px; }
+        h3 { font-size: 24px; font-weight: 600; line-height: 1.33; }
+        h4 { font-size: 14px; font-weight: 600; line-height: 1.43; letter-spacing: 0.14px; }
+        p { font-size: 16px; font-weight: 400; line-height: 1.5; color: #414754; }
+        
+        .text-sm { font-size: 12px; font-weight: 400; }
+        .text-lg { font-size: 18px; font-weight: 400; }
+
+        /* Header */
+        header {
+            background: #fbf9f8;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #007bff;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #414754;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 6px;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+            padding: 8px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-secondary {
+            background: #e63946;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #d32f2f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(251, 249, 248, 0.9), rgba(251, 249, 248, 0.4)), 
+                        url('https://www.figma.com/api/mcp/asset/a4a7d440-1259-481e-91d1-5cab5d08e5fc.png') center/cover;
+            background-color: #eae8e7;
+            padding: 80px 40px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            background: rgba(251, 249, 248, 0.8);
+            backdrop-filter: blur(2px);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 672px;
+        }
+
+        .hero h1 {
+            margin-bottom: 16px;
+            color: #1b1c1c;
+        }
+
+        .hero p {
+            margin-bottom: 24px;
+            font-size: 18px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 40px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .service-card {
+            background: #fbf9f8;
+            border: 1px solid rgba(193, 198, 215, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 8px;
+            color: #1b1c1c;
+        }
+
+        .service-card p {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .service-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .service-link:hover {
+            text-decoration: underline;
+        }
+
+        /* About Section */
+        .about {
+            background: #f6f3f2;
+            padding: 80px;
+            border-top: 1px solid rgba(193, 198, 215, 0.2);
+            border-bottom: 1px solid rgba(193, 198, 215, 0.2);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: -24px;
+            right: -24px;
+            background: #007bff;
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .badge .number {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .badge .label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-top: 5.5px;
+        }
+
+        .about-content h2 {
+            margin-bottom: 16px;
+        }
+
+        .about-content > p {
+            margin-bottom: 16px;
+        }
+
+        .benefits {
+            border-top: 1px solid rgba(193, 198, 215, 0.3);
+            padding-top: 25px;
+            margin-top: 16px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .benefit-item::before {
+            content: '✓';
+            color: #007bff;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 40px;
+            background: #ffffff;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 64px;
+            position: relative;
+        }
+
+        .pricing-card {
+            background: #fbf9f8;
+            border: 1px solid rgba(193, 198, 215, 0.3);
+            border-radius: 16px;
+            padding: 33px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #007bff;
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007bff;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .pricing-name {
+            margin-bottom: 8px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .pricing-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1b1c1c;
+            margin-bottom: 24px;
+            letter-spacing: -0.32px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: #414754;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #007bff;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-card button {
+            width: 100%;
+            padding: 12px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .pricing-card button:hover {
+            background: #d32f2f;
+        }
+
+        /* Booking Section */
+        .booking {
+            background: #eae8e7;
+            padding: 80px 40px;
+        }
+
+        .booking-wrapper {
+            background: #fbf9f8;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booking-form h2 {
+            margin-bottom: 8px;
+        }
+
+        .booking-form > p {
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: #1b1c1c;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid rgba(113, 119, 134, 0.5);
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            background: #fbf9f8;
+            color: #1b1c1c;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #007bff;
+            background: #ffffff;
+        }
+
+        .form-group input::placeholder {
+            color: #6b7280;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+
+        .form-submit:hover:not(:disabled) {
+            background: #0056b3;
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .message {
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .message.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+            display: block;
+        }
+
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+            display: block;
+        }
+
+        .contact-sidebar {
+            background: #f6f3f2;
+            border: 1px solid rgba(193, 198, 215, 0.3);
+            border-radius: 16px;
+            padding: 48px 33px;
+        }
+
+        .contact-sidebar h3 {
+            margin-bottom: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f0ff;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 4px;
+            color: #1b1c1c;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .contact-info .time {
+            font-size: 12px;
+            font-weight: 500;
+            color: #414754;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: #e4e2e1;
+            border-top: 1px solid #c1c6d7;
+            padding: 33px 40px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1b1c1c;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            color: #1b1c1c;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-nav a {
+            font-size: 12px;
+            font-weight: 500;
+            color: #616363;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer-nav a:hover {
+            color: #1b1c1c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            header {
+                padding: 0 24px;
+            }
+
+            nav {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            h1 { font-size: 32px; }
+            h2 { font-size: 24px; }
+
+            .hero {
+                padding: 40px 24px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 24px;
+                max-width: 100%;
+            }
+
+            .services {
+                padding: 40px 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .about {
+                padding: 40px 24px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .pricing {
+                padding: 40px 24px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .booking {
+                padding: 40px 24px;
+            }
+
+            .booking-wrapper {
+                padding: 32px 24px;
+            }
+
+            .booking-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+                padding: 24px;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            h2 { font-size: 18px; }
+            p { font-size: 14px; }
+
+            .container, header {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 32px 16px;
+            }
+
+            .services {
+                padding: 32px 16px;
+            }
+
+            .about {
+                padding: 32px 16px;
+            }
+
+            .pricing {
+                padding: 32px 16px;
+            }
+
+            .booking {
+                padding: 32px 16px;
+            }
+
+            .booking-wrapper {
+                padding: 24px 16px;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .btn-primary {
+                padding: 6px 16px;
+                font-size: 12px;
+            }
+        }
+
+        .loader {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 6px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">German Motors</div>
+        <nav>
+            <a onclick="scrollToSection('home')">Home</a>
+            <a onclick="scrollToSection('services')">Services</a>
+            <a onclick="scrollToSection('pricing')">Pricing</a>
+            <a onclick="scrollToSection('booking')">Booking</a>
+            <a onclick="scrollToSection('contact')">Contact</a>
+            <button class="btn-primary" onclick="scrollToSection('booking')">Book Now</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Reliable Car Service You Can Trust</h1>
+            <p>Expert Auto Repair & Maintenance for All Makes and Models.</p>
+            <button class="btn-secondary" onclick="scrollToSection('booking')">Schedule Service Today</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Our Professional Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛢️</div>
+                <h3>Oil Change</h3>
+                <p>Premium synthetic and conventional oil changes to keep your engine running smoothly.</p>
+                <a class="service-link" onclick="scrollToSection('booking')">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Brake Repair</h3>
+                <p>Comprehensive brake inspections, pad replacements, and rotor resurfacing.</p>
+                <a class="service-link" onclick="scrollToSection('booking')">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛞</div>
+                <h3>Tire Services</h3>
+                <p>Rotation, balancing, alignment, and sales of major tire brands.</p>
+                <a class="service-link" onclick="scrollToSection('booking')">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Engine Diagnostics</h3>
+                <p>Advanced computer diagnostics to identify and resolve complex engine issues.</p>
+                <a class="service-link" onclick="scrollToSection('booking')">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1486611351185-8a0b4dc47fe9?w=500&h=400&fit=crop" alt="German Motors Team">
+                <div class="badge">
+                    <div class="number">15+</div>
+                    <div class="label">Years Exp.</div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Professional Car Care You Can Depend On</h2>
+                <p>At German Motors, we combine traditional craftsmanship with advanced diagnostic technology. Our certified technicians have decades of combined experience working on all major vehicle makes and models.</p>
+                <p>We believe in absolute transparency. You'll never pay for a service you don't need, and we walk you through every repair step-by-step. It's the precision of German engineering applied to everyday car care.</p>
+                <div class="benefits">
+                    <div class="benefit-item">ASE Certified Technicians</div>
+                    <div class="benefit-item">Transparent Pricing Guarantee</div>
+                    <div class="benefit-item">State-of-the-art Diagnostic Tools</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-title">
+            <h2>Transparent Pricing</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-name">Basic</div>
+                <div class="pricing-price">$49.99</div>
+                <ul class="pricing-features">
+                    <li>Oil change</li>
+                    <li>Fluid level check</li>
+                </ul>
+                <button onclick="scrollToSection('booking')">Get Started</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-name">Standard</div>
+                <div class="pricing-price">$89.99</div>
+                <ul class="pricing-features">
+                    <li>Oil change</li>
+                    <li>Tire rotation</li>
+                    <li>Brake pad inspection</li>
+                </ul>
+                <button onclick="scrollToSection('booking')">Get Started</button>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-name">Premium</div>
+                <div class="pricing-price">$149.99</div>
+                <ul class="pricing-features">
+                    <li>Full computer diagnostic</li>
+                    <li>Oil & filter change</li>
+                    <li>Comprehensive brake service</li>
+                    <li>50-point inspection</li>
+                </ul>
+                <button onclick="scrollToSection('booking')">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="booking-wrapper">
+            <div class="booking-container">
+                <div class="booking-form">
+                    <h2>Schedule Your Service</h2>
+                    <p>Fill out the form below and we'll confirm your appointment shortly.</p>
+                    
+                    <div id="successMessage" class="message success">
+                        ✓ Thank you! We've received your information. We'll contact you shortly to confirm your appointment.
+                    </div>
+                    
+                    <div id="errorMessage" class="message error">
+                        ✗ Something went wrong. Please try again.
+                    </div>
+
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        </div>
+
+                        <button type="submit" class="form-submit">
+                            <span id="submitText">Submit Request</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-sidebar" id="contact">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-info">
+                            <h4>Visit Us</h4>
+                            <p>Door No. 685, Wabag House,</p>
+                            <p>Opposite to Wabag House, 200 Feet</p>
+			    <p>Radial Road, Kovilambakkam,</p>
+			    <p>Chennai-600129, Tamil Nadu</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-info">
+                            <h4>Call Us</h4>
+                            <p>+91 9003258674</p>
+                            <p class="time">Mon-Fri: 8am - 6pm</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-info">
+                            <h4>Email Us</h4>
+                            <p>service@germanmotors.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">German Motors</div>
+        <div class="footer-text">© 2024 German Motors. Precision. Reliability. Transparency.</div>
+        <div class="footer-nav">
+            <a onclick="alert('Privacy Policy')">Privacy Policy</a>
+            <a onclick="alert('Terms of Service')">Terms of Service</a>
+            <a onclick="alert('FAQ')">FAQ</a>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration - Your AppScript URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzoTYCL6s4Xv7aHv4s-qok6F7NX8-j5w5o6vbEYZkAt5g2O2rx2f46GuJ2irFJAowLV/exec';
+        
+        // Form Handler
+        const form = document.getElementById('bookingForm');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
+        const submitBtn = form.querySelector('.form-submit');
+        const submitText = document.getElementById('submitText');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Hide messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            // Basic validation
+            if (!name || !email || !phone) {
+                showError('Please fill in all fields.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showError('Please enter a valid email address.');
+                return;
+            }
+
+            // Disable submit and show loading
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<span class="loader"></span> Submitting...';
+
+            // Build URL with query parameters
+            const params = new URLSearchParams();
+            params.append('name', name);
+            params.append('email', email);
+            params.append('phone', phone);
+            const url = SCRIPT_URL + '?' + params.toString();
+
+            // Use XMLHttpRequest for better file:// protocol support
+            const xhr = new XMLHttpRequest();
+            xhr.timeout = 15000; // 15 second timeout
+
+            xhr.onload = function() {
+                // Assume success regardless of status (AppScript may return opaque response)
+                showSuccess();
+                form.reset();
+                submitBtn.disabled = false;
+                submitText.textContent = 'Submit Request';
+            };
+
+            xhr.onerror = function() {
+                console.error('Request error');
+                showError('Network error. Please check your connection and try again.');
+                submitBtn.disabled = false;
+                submitText.textContent = 'Submit Request';
+            };
+
+            xhr.ontimeout = function() {
+                console.error('Request timeout');
+                showError('Request timed out. Please try again.');
+                submitBtn.disabled = false;
+                submitText.textContent = 'Submit Request';
+            };
+
+            try {
+                xhr.open('GET', url, true);
+                xhr.send();
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Failed to submit form. Please try again.');
+                submitBtn.disabled = false;
+                submitText.textContent = 'Submit Request';
+            }
+        });
+
+        function isValidEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function showSuccess() {
+            successMsg.style.display = 'block';
+            errorMsg.style.display = 'none';
+
+            // Auto-hide after 6 seconds
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 6000);
+        }
+
+        function showError(message) {
+            errorMsg.textContent = '✗ ' + message;
+            errorMsg.style.display = 'block';
+            successMsg.style.display = 'none';
+        }
+
+        // Smooth scroll helper
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                if (sectionId === 'booking') {
+                    document.getElementById('name').focus();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
